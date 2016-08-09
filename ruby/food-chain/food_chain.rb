@@ -4,7 +4,7 @@ class FoodChain
     ANIMALS.each do |animal, verse|
       song << "I know an old lady who swallowed a #{animal}.\n#{verse}\n"
       ANIMALS.keys.take_while { |k| k != animal}.reverse.inject(animal) do |prev_animal, cur_animal|
-        catch_animal = VARIATIONS.has_key?(cur_animal)? VARIATIONS[cur_animal] : cur_animal.to_s
+        catch_animal = VARIATIONS.fetch(cur_animal, cur_animal.to_s)
         song << "She swallowed the #{prev_animal} to catch the #{catch_animal}.\n"
         cur_animal
       end

@@ -5,14 +5,14 @@ class Deque
     node = Node.new(val, @back)
     @back.next = node if @back
     @back = node
-    @front = @back unless @front
+    @front ||= @back
   end
 
   def unshift(val)
     node = Node.new(val, nil, @front)
     @front.prev = node if @front
     @front = node
-    @back = @front unless @back
+    @back ||= @front
   end
 
   def pop

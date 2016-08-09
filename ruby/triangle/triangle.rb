@@ -4,7 +4,7 @@ class Triangle
   def initialize(*s)
     @sides = s.sort!
     # The sum of smaller sides must be greater than the greatest side
-    raise TriangleError unless s[0] > 0 && (s[0] + s[1] > s[2])
+    raise TriangleError unless s[0] + s[1] > s[2]
   end
 
   def kind
